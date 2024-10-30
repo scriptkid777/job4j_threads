@@ -1,4 +1,4 @@
-package org.concurrent;
+package ru.job4j.org.concurrent;
 
 public class ConcurrentOutput {
     public static void main(String[] args) throws InterruptedException {
