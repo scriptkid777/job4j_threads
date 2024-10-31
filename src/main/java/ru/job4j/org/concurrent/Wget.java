@@ -11,6 +11,6 @@ for (int index = 0; index <= 100; index++) {
     System.out.print("\rLoading : " + index + "%");
     Thread.sleep(7);
 }
-System.out.println("\nLoaded.Finish");
+System.out.println("\n Loaded.Finish");
     }
 }
