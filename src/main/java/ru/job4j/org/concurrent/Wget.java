@@ -11,7 +11,6 @@ public class Wget {
             for (int index = 0; index <= 100; index++) {
                 Thread.sleep(200);
                 System.out.print("\rLoading : " + index + "%");
-                Thread.sleep(7);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
