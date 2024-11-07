@@ -10,7 +10,7 @@ public class ConsoleProgress implements Runnable {
         задачи в течение 5 секунд. */
             progress.interrupt();
         } catch (InterruptedException e) {
-          Thread.currentThread().interrupt();
+         e.printStackTrace();
         }
     }
 
