@@ -31,11 +31,12 @@ public class Wget implements Runnable {
             while ((downloadByte = input.read(buffer, 0, buffer.length)) != -1) {
                 out.write(buffer, 0, buffer.length);
                 totalBytes = totalBytes + downloadByte;
+                totalTime = System.currentTimeMillis() - startTime;
+                if (totalBytes >= speed && totalTime <= 1000) {
+                    Thread.sleep(1000 - totalTime);
+                }
             }
-            totalTime = System.currentTimeMillis() - startTime;
-            if (totalBytes >= speed && totalTime <= 1000) {
-                Thread.sleep(1000 - totalTime);
-            }
+
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
