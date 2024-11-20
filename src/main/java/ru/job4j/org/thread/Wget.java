@@ -32,12 +32,12 @@ public class Wget implements Runnable {
                 totalBytes = totalBytes + downloadByte;
                 if (totalBytes >= speed) {
                     long totalTime = System.currentTimeMillis() - startTime;
-                   if (totalTime < 1000) {
-                       Thread.sleep(1000 - totalTime);
-                   }
+                    if (totalTime < 1000) {
+                        Thread.sleep(1000 - totalTime);
+                    }
+                    totalBytes = 0;
+                    startTime = System.currentTimeMillis();
                 }
-                totalBytes = 0;
-                startTime = System.currentTimeMillis();
             }
 
         } catch (IOException e) {
@@ -47,35 +47,35 @@ public class Wget implements Runnable {
         }
     }
 
-            private static void check(String[] args) {
-                if (args.length == 0) {
-                    throw new IllegalArgumentException("Arguments are not assigned to the main method");
-                }
-                String url = args[0];
-                int speed = Integer.parseInt(args[1]);
-                String fileName = args[2];
-                try {
-                    new URL(url).toURI();
-                } catch (Exception e) {
-                    throw new IllegalArgumentException("The URL " + url + " isn't valid.");
-                }
-                if (speed <= 0) {
-                    throw new IllegalArgumentException("This value: " + speed + " is incorrect");
-                }
+    private static void check(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException("Arguments are not assigned to the main method");
+        }
+        String url = args[0];
+        int speed = Integer.parseInt(args[1]);
+        String fileName = args[2];
+        try {
+            new URL(url).toURI();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("The URL " + url + " isn't valid.");
+        }
+        if (speed <= 0) {
+            throw new IllegalArgumentException("This value: " + speed + " is incorrect");
+        }
 
-                if (!fileName.contains(".")) {
-                    throw new IllegalArgumentException("Please enter a valid file name");
-                }
+        if (!fileName.contains(".")) {
+            throw new IllegalArgumentException("Please enter a valid file name");
+        }
 
-            }
+    }
 
-            public static void main(String[] args) throws InterruptedException {
-                check(args);
-                String url = args[0];
-                int speed = Integer.parseInt(args[1]);
-                String fileName = args[2];
-                Thread wget = new Thread(new Wget(url, speed, fileName));
-                wget.start();
-                wget.join();
-            }
+    public static void main(String[] args) throws InterruptedException {
+        check(args);
+        String url = args[0];
+        int speed = Integer.parseInt(args[1]);
+        String fileName = args[2];
+        Thread wget = new Thread(new Wget(url, speed, fileName));
+        wget.start();
+        wget.join();
+    }
         }
