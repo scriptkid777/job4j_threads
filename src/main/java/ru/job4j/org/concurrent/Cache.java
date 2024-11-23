@@ -7,7 +7,6 @@ public  final class Cache {
         if (cache == null) {
             cache = new Cache();
         }
-
         return cache;
     }
 }
