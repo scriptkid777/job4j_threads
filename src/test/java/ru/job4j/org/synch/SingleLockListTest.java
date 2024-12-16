@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SingleLockListTest {
