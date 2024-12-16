@@ -1,7 +1,7 @@
 package ru.job4j.org;
 
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class CountTest {
     @Test
@@ -9,7 +9,6 @@ class CountTest {
         var count = new Count();
         var first = new Thread(count::increment);
         var second = new Thread(count::increment);
-        /* Запускаем нити. */
         first.start();
         second.start();
         /* Заставляем главную нить дождаться выполнения наших нитей. */
