@@ -1,7 +1,6 @@
 package ru.job4j.org.cash;
 
 import net.jcip.annotations.GuardedBy;
-
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -20,7 +19,7 @@ public class AccountStorage {
         accounts.remove(id);
     }
 
-    public Optional<Account> getById(int id) {
+    public synchronized Optional<Account> getById(int id) {
 
         return Optional.ofNullable(accounts.get(id));
     }
