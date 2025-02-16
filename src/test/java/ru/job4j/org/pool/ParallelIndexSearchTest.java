@@ -47,6 +47,5 @@ class ParallelIndexSearchTest {
         }
         Integer searchElement = array[array.length - 1];
         assertThat(ParallelIndexSearch.search(array, searchElement)).isEqualTo(14);
-
     }
 }

@@ -22,7 +22,6 @@ public class ParallelIndexSearch<T> extends RecursiveTask<Integer> {
         this.searchElement = searchElement;
     }
 
-
     private int lineSearch(int start, int end) {
         for (int index = start; index < end; index++) {
             if (searchElement.equals(array[index])) {
@@ -48,6 +47,6 @@ public class ParallelIndexSearch<T> extends RecursiveTask<Integer> {
     }
 
     public static <T> Integer search(T[] array, T searchElement) {
-       return new  ForkJoinPool().invoke(new ParallelIndexSearch<>(array,0, array.length, searchElement));
+       return new  ForkJoinPool().invoke(new ParallelIndexSearch<>(array, 0, array.length, searchElement));
     }
 }
